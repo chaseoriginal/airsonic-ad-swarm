@@ -1,32 +1,31 @@
----
 services:
   airsonic-advanced:
     image: lscr.io/linuxserver/airsonic-advanced:latest
     container_name: airsonic-advanced
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ="America/Chicago"
-      - CONTEXT_PATH= #optional
-      - JAVA_OPTS= #optional
+    - PUID=1000
+    - PGID=1000
+    - TZ=America/Chicago
+    - CONTEXT_PATH=
+    - JAVA_OPTS=
     volumes:
-      - airsonic-advanced-config:/config
-      - /media/Multimedia/Music:/music
-      - /media/Multimedia/Music/playlists:/var/playlists
-      - /media/Multimedia/Music/Podcasts:/podcasts
-      #- /path/to/other media:/media #optional
-    ports:    
-      - target: 4040
-        published: 4040
-        protocol: tcp
-        mode: host
+    - airsonic-ad-swarm_airsonic-advanced-config:/config
+    - /media/Multimedia/Music:/music
+    - /media/Multimedia/Music/playlists:/var/playlists
+    - /media/Multimedia/Music/Podcasts:/podcasts
+    ports:
+    - target: 4040
+      published: 4040
+      protocol: tcp
+      mode: host
     deploy:
       placement:
         constraints:
-          - node.labels.deployment.target.subsonic == true
+        - node.labels.deployment.target.subsonic == true
       restart_policy:
         condition: on-failure
     devices:
-      - /dev/snd:/dev/snd #optional
+    - /dev/snd:/dev/snd
 volumes:
-  airsonic-advanced-config:
+  airsonic-ad-swarm_airsonic-advanced-config:
+    name: airsonic-ad-swarm_airsonic-advanced-config

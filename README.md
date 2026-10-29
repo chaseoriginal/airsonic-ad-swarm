@@ -8,8 +8,8 @@ deployment and polls this repository for changes.
 | Portainer stack id | 35 |
 | Portainer host | ore-dock-110-4 |
 | Endpoint | - (id -) |
-| Swarm | whofnrgxv5ig |
-| Live service | airsonic-ad-swarm_airsonic-advanced |
+| Swarm | True |
+| Live service | svc:airsonic-ad-swarm_airsonic-advanced |
 | Git repo | https://github.com/chaseoriginal/airsonic-ad-swarm |
 | Compose file | `docker-compose.yml` |
 | Auto-update poll | every 900s |
@@ -39,8 +39,8 @@ deployment and polls this repository for changes.
 ## Verifying a deployment
 
 ```bash
-docker service ls --filter name=airsonic-ad-swarm_airsonic-advanced
-docker service inspect airsonic-ad-swarm_airsonic-advanced --format '{{json .Spec.TaskTemplate.ContainerSpec.Mounts}}'
+docker service ls --filter name=svc:airsonic-ad-swarm_airsonic-advanced
+docker service inspect svc:airsonic-ad-swarm_airsonic-advanced --format '{{json .Spec.TaskTemplate.ContainerSpec.Mounts}}'
 ```
 
 A healthy stack shows `1/1` and the same volume names as before.

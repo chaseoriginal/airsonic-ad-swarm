@@ -21,7 +21,7 @@ services:
     deploy:
       placement:
         constraints:
-        - node.labels.deployment.target.subsonic == true
+        - node.labels.deployment.target.airsonic==true
       restart_policy:
         condition: on-failure
     devices:

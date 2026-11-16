@@ -1,6 +1,6 @@
 services:
   airsonic-advanced:
-    image: lscr.io/linuxserver/airsonic-advanced:11.1.4-ls197
+    image: lscr.io/linuxserver/airsonic-advanced:11.1.4-ls198
     container_name: airsonic-advanced
     environment:
     - PUID=1000
